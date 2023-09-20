@@ -1,3 +1,6 @@
+import 'package:ecommarce_ui/screens/login_screen.dart';
+import 'package:ecommarce_ui/screens/navigation_screen.dart';
+import 'package:ecommarce_ui/screens/onboarding_screen.dart';
 import 'package:ecommarce_ui/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -14,9 +17,9 @@ class MyApp extends StatelessWidget {
       title: 'Ecommarce Shopping',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Color(0xffef6969),
+        primaryColor: const Color(0xffdb3022),
       ),
-      home: SplashScreen(),
+      home: NavigationScreen(),
     );
   }
 }
