@@ -2,7 +2,6 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:ecommarce_ui/screens/home_screen.dart';
 import 'package:ecommarce_ui/screens/profile_screen.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'cart_screen.dart';
@@ -16,15 +15,16 @@ class NavigationScreen extends StatefulWidget {
 }
 
 class _NavigationScreenState extends State<NavigationScreen> {
+  int pageIndex = 0;
+  List<Widget> pages = [
+    HomeScreen(),
+    CartScreen(),
+    FavoritesScreen(),
+    ProfileScreen(),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    int pageIndex = 0;
-    List<Widget> pages = [
-       HomeScreen(),
-       CartScreen(),
-       FavoritesScreen(),
-       ProfileScreen(),
-    ];
     return Scaffold(
       body: IndexedStack(
         index: pageIndex,
@@ -58,6 +58,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
         iconSize: 25,
         rightCornerRadius: 10,
         elevation: 0,
+
         onTap: (index) {
           setState(() {
             pageIndex = index;
