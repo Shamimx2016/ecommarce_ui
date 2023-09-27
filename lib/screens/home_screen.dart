@@ -1,8 +1,32 @@
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  List<String> tabs = ["All", "Catagory", "Top", "Recomanded"];
 
+  List imageList = [
+    "Images/image1.jpg",
+    "Images/image2.jpg",
+    "Images/image3.jpg",
+    "Images/image4.jpg",
+  ];
+  List productTitles = [
+    "Warm Zipper",
+    "Knitted woo!",
+    "Zipper win",
+    "Child win"
+  ];
+  List prices = [
+    "\$300",
+    "\50",
+    "\650",
+    "\100",
+  ];
+  List reviews = [
+    "54",
+    "44",
+    "55",
+    "566",
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,6 +104,41 @@ class HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Image.asset('images/freed.png'),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                SizedBox(
+                  height: 50,
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: tabs.length,
+                    itemBuilder: (context, index) {
+                      return FittedBox(
+                        child: Container(
+                          height: 40,
+                          margin: const EdgeInsets.all(8),
+                          padding: const EdgeInsets.only(left: 15, right: 15),
+                          decoration: BoxDecoration(
+                            color: Colors.black12.withOpacity(0.05),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Center(
+                            child: FittedBox(
+                              child: Text(
+                                tabs[index],
+                                style: const TextStyle(
+                                  color: Colors.black38,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ],
             ),
