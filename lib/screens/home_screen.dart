@@ -4,10 +4,10 @@ class HomeScreen extends StatelessWidget {
   List<String> tabs = ["All", "Catagory", "Top", "Recomanded"];
 
   List imageList = [
-    "Images/image1.jpg",
-    "Images/image2.jpg",
-    "Images/image3.jpg",
-    "Images/image4.jpg",
+    "assets/images/image1.jpg",
+    "assets/images/image2.jpg",
+    "assets/images/image3.jpg",
+    "assets/images/image4.jpg",
   ];
   List productTitles = [
     "Warm Zipper",
@@ -17,9 +17,9 @@ class HomeScreen extends StatelessWidget {
   ];
   List prices = [
     "\$300",
-    "\50",
-    "\650",
-    "\100",
+    "\$50",
+    "\$650",
+    "\$100",
   ];
   List reviews = [
     "54",
@@ -103,7 +103,7 @@ class HomeScreen extends StatelessWidget {
                     color: const Color(0xfffff0dd),
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: Image.asset('images/freed.png'),
+                  child: Image.asset('assets/images/freed.png'),
                 ),
                 const SizedBox(
                   height: 20,
@@ -131,6 +131,7 @@ class HomeScreen extends StatelessWidget {
                                 style: const TextStyle(
                                   color: Colors.black38,
                                   fontWeight: FontWeight.bold,
+                                  fontSize: 16,
                                 ),
                               ),
                             ),
@@ -140,6 +141,91 @@ class HomeScreen extends StatelessWidget {
                     },
                   ),
                 ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  height: 280,
+                  child: ListView.builder(
+                    itemCount: imageList.length,
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        margin: EdgeInsets.only(right: 15),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              height: 200,
+                              child: Stack(
+                                children: [
+                                  InkWell(
+                                    onTap: () {},
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(10),
+                                      child: Image.asset(imageList[index]),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    top: 10,
+                                    right: 10,
+                                    child: Container(
+                                      height: 30,
+                                      width: 30,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(20),
+                                      ),
+                                      child: const Center(
+                                        child: Icon(
+                                          Icons.favorite,
+                                          color: Color(0xffdb3022),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              productTitles[index],
+                              style: const TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                const Icon(
+                                  Icons.star,
+                                  color: Colors.amber,
+                                  size: 22,
+                                ),
+                                Text('(' + reviews[index] + ')'),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  prices[index],
+                                  style: const TextStyle(
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xffdb3022),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                )
               ],
             ),
           ),
