@@ -302,7 +302,7 @@ class HomeScreen extends StatelessWidget {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                       ProductScreen()));
+                                                      ProductScreen()));
                                         },
                                         child: ClipRRect(
                                           borderRadius:
