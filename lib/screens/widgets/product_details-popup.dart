@@ -27,9 +27,7 @@ class ProductDetalisPopUp extends StatelessWidget {
           ),
         );
       },
-      child: ContainerButtonModel(
 
-      ),
     );
   }
 }
